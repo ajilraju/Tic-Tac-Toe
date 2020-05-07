@@ -47,16 +47,8 @@ def choose_position(player):
 def place_marker(player, position):
     board[position - 1] = markers[player]   # allocating markers at the indexed - 1 location.
 
-def start_play(toggle_player):
-    print('Player {} will go first :) '.format(toggle_player))
-    decision = input("Are you ready to play? Enter Yes or No. ")
-    if decision == 'Yes':
-        return toggle_player
-    else:
-        return toggle_player
-        
 def replay():
-    return input('Do you want to play again? Enter Yes or No:  ').lower().startswith('y')
+    return input('\nDo you want to play again? Enter Yes or No:  ').lower().startswith('y')
 
 def who_play_first():
     return rand.choice((1, 2))
@@ -66,14 +58,19 @@ while True:
     print("""
     Welcome to Tic Tac Toe!
      _ _ _
-    |_|_|_|        7 8 9    
+    |_|_|_|     7 8 9    
     |_|_|_| --> 4 5 6
     |_|_|_|     1 2 3
     """)
     
     toggle_player = who_play_first();
-    player = start_play(toggle_player)
-    game_on = True
+    player = toggle_player
+    print('Player {} will go first :) '.format(player))
+    is_start = input("Are you ready to play? Enter Yes or No. ")
+    if is_start == 'Yes':
+        game_on = True
+    else: 
+        game_on = False
 
     while game_on:
         draw_board(board)
