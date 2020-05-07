@@ -8,15 +8,6 @@ board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 # makers tuple for player1 and player2 marker
 markers = ('#', 'X', 'O')
 
-def welcome():
-	print("""
-    Welcome to Tic Tac Toe!
-	 _ _ _
-	|_|_|_|	    7 8 9	
-	|_|_|_| --> 4 5 6
-	|_|_|_|     1 2 3
-	""")
-
 def draw_board(board):
 	print('\t.............')
 	print('\t| {} | {} | {} |'.format(board[6], board[7], board[8]))
@@ -27,14 +18,14 @@ def draw_board(board):
 	print('\t.............')
 
 def win_check(board, player):
-	return ((board[0] == board[1] == board[2] == markers[player]) or # check across bottom row
-	(board[3] == board[4] == board[5] == markers[player]) or		 # check across middle row
-	(board[6] == board[7] == board[8] == markers[player]) or 		 # check across top row
-	(board[0] == board[4] == board[8] == markers[player]) or		 # check across diagonal 1,5,9
-	(board[2] == board[4] == board[6] == markers[player]) or		 # check across diagonal 2,5,7
-	(board[0] == board[3] == board[6] == markers[player]) or		 # check across first column
-	(board[1] == board[4] == board[7] == markers[player]) or		 # check across second column
-	(board[2] == board[5] == board[8] == markers[player]))			 # check across third column
+	return ((board[0] == board[1] == board[2] == markers[player]) or    # check across bottom row
+	(board[3] == board[4] == board[5] == markers[player]) or            # check across middle row
+	(board[6] == board[7] == board[8] == markers[player]) or            # check across top row
+	(board[0] == board[4] == board[8] == markers[player]) or            # check across diagonal 1,5,9
+	(board[2] == board[4] == board[6] == markers[player]) or            # check across diagonal 2,5,7
+	(board[0] == board[3] == board[6] == markers[player]) or            # check across first column
+	(board[1] == board[4] == board[7] == markers[player]) or            # check across second column
+	(board[2] == board[5] == board[8] == markers[player]))              # check across third column
 
 def check_draw():
 	return (' ' not in  board[::-1])
@@ -69,7 +60,14 @@ def who_play_first():
 
 # main
 while True:
-	welcome() # Game welcome notes.
+	print("""
+    Welcome to Tic Tac Toe!
+	 _ _ _
+	|_|_|_|	    7 8 9	
+	|_|_|_| --> 4 5 6
+	|_|_|_|     1 2 3
+	""")
+	
 	toggle_player = who_play_first();
 	player = start_play(toggle_player)
 	game_on = True
