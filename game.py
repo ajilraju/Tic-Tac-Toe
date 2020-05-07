@@ -27,24 +27,14 @@ def draw_board(board):
 	print('\t.............')
 
 def win_check(board, player):
-	if   board[0] == board[1] == board[2] == markers[player]:
-		return True
-	elif board[3] == board[4] == board[5] == markers[player]:
-		return True
-	elif board[6] == board[7] == board[8] == markers[player]:
-		return True
-	elif board[0] == board[4] == board[8] == markers[player]:
-		return True
-	elif board[2] == board[4] == board[6] == markers[player]:
-		return True	
-	elif board[0] == board[3] == board[6] == markers[player]:
-		return True	
-	elif board[1] == board[4] == board[7] == markers[player]:
-		return True	
-	elif board[2] == board[5] == board[8] == markers[player]:
-		return True	
-	else:
-		return False
+	return ((board[0] == board[1] == board[2] == markers[player]) or # check across bottom row
+	(board[3] == board[4] == board[5] == markers[player]) or		 # check across middle row
+	(board[6] == board[7] == board[8] == markers[player]) or 		 # check across top row
+	(board[0] == board[4] == board[8] == markers[player]) or		 # check across diagonal 1,5,9
+	(board[2] == board[4] == board[6] == markers[player]) or		 # check across diagonal 2,5,7
+	(board[0] == board[3] == board[6] == markers[player]) or		 # check across first column
+	(board[1] == board[4] == board[7] == markers[player]) or		 # check across second column
+	(board[2] == board[5] == board[8] == markers[player]))			 # check across third column
 
 def check_draw():
 	return (' ' not in  board[::-1])
