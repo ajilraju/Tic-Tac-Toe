@@ -6,5 +6,5 @@ python:
 before_script:
     pip install flake8      # Installing flake8 for code style
 script:
-    - flake8 . --ignore E501 # Ignored the E501,
+    - flake8 ./src --ignore E501 # Ignored the E501,
 
