@@ -70,6 +70,8 @@ def welcome_notes():
     |_|_|_| --> 4 5 6
     |_|_|_|     1 2 3
          """)
+
+
 # main
 while True:
     welcome_notes()
