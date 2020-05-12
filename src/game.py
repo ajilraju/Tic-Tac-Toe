@@ -20,6 +20,9 @@ def draw_board(board):
 
 
 def win_check(board, player):
+    """ check the equality of distinct 3 rows and same columns may contains same
+        marker, at different dimensions """
+
     return ((board[0] == board[1] == board[2] == markers[player]) or    # check across bottom row
             (board[3] == board[4] == board[5] == markers[player]) or    # check across middle row
             (board[6] == board[7] == board[8] == markers[player]) or    # check across top row
@@ -31,11 +34,12 @@ def win_check(board, player):
 
 
 def check_draw():
-    return (' ' not in board[::-1])
+    """ Check every rows and columns are filled with markers """
+    return ' ' not in board[::-1]
 
 
-# Check for the further allocation of markers
-def check_space(pos):
+def check_space(pos): 
+    """ Check if any space is left for the next for the players """
     if board[int(pos) - 1] == ' ':
         return True
     else:
@@ -43,6 +47,9 @@ def check_space(pos):
 
 
 def choose_position(player):
+    """ Prompting the players to choose the desired position for the 
+        game moves and return back the position to control """
+
     position = 0
     while position not in range(1, 10) or not check_space(position):
         prompt = 'Player {} :Choose your next position (1-9) -> '.format(player)
@@ -51,6 +58,10 @@ def choose_position(player):
 
 
 def place_marker(player, position):
+    """ fill up the marker at the given position, here position is taken as 
+        (pos - 1) that is becuse, list index started with zero, human decide 
+        pos is started with 1 """
+
     board[position - 1] = markers[player]   # allocating markers at the indexed - 1 location.
 
 
@@ -59,6 +70,7 @@ def replay():
 
 
 def who_play_first():
+    """ A random routines to select the player from choice of (1 and 2) """
     return rand.choice((1, 2))
 
 
