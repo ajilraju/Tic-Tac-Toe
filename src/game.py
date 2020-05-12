@@ -38,7 +38,7 @@ def check_draw():
     return ' ' not in board[::-1]
 
 
-def check_space(pos): 
+def check_space(pos):
     """ Check if any space is left for the next for the players """
     if board[int(pos) - 1] == ' ':
         return True
@@ -47,9 +47,8 @@ def check_space(pos):
 
 
 def choose_position(player):
-    """ Prompting the players to choose the desired position for the 
+    """ Prompting the players to choose the desired position for the
         game moves and return back the position to control """
-
     position = 0
     while position not in range(1, 10) or not check_space(position):
         prompt = 'Player {} :Choose your next position (1-9) -> '.format(player)
@@ -58,10 +57,9 @@ def choose_position(player):
 
 
 def place_marker(player, position):
-    """ fill up the marker at the given position, here position is taken as 
-        (pos - 1) that is becuse, list index started with zero, human decide 
+    """ fill up the marker at the given position, here position is taken as
+        (pos - 1) that is becuse, list index started with zero, human decide
         pos is started with 1 """
-
     board[position - 1] = markers[player]   # allocating markers at the indexed - 1 location.
 
 
